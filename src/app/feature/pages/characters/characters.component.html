@@ -1,0 +1,37 @@
+<main>
+    <div class="d-inline-flex container-flex">
+        <div class="w-100 text-center">
+            <h1 class="mt-0 mb-0">Characters List</h1>
+            <h3 class="mt-0">Page {{(paginatorOptions.next?paginatorOptions.next.split('page=')[1]:0) - 1}}</h3>
+            <h3 class="mt-0" *ngIf="!paginatorOptions.next">Page {{paginatorOptions.pages}}</h3>
+        </div>
+        <mat-card *ngFor="let character of charactersList" class="d-flex custom-card">
+            <div>
+                <img [src]="character.image" alt="" class="resource-img">
+            </div>
+            <div class="pl-10 my-auto">
+                <h2 class="mt-0 mb-0 font-extrabold">{{character.name}}</h2>
+                <div class="d-flex">
+                    <mat-icon
+                        [ngClass]="{'alive': character.status=='Alive','dead': character.status=='Dead','unknown': character.status=='unknown'}">
+                        noise_control_off</mat-icon>
+                    <span class="font-bold my-auto">{{character.status}} - {{character.species}}</span>
+                </div>
+                <div>
+                    <small>Last known location:</small>
+                    <a class="link" [routerLink]="['/location', {code: character.location.url.split('location/')[1]}]"><h4 class="mt-0 mb-0">{{character.location.name}}</h4></a>
+                </div>
+
+                <div *ngIf="character.firstEpisode">
+                    <small>First seen in:</small>
+                    <h4 class="mt-0 mb-0">{{character.firstEpisode.name}}</h4>
+                </div>
+            </div>
+        </mat-card>
+
+        <div class="w-100 mt-10">
+            <mat-paginator [length]="paginatorOptions.count" [pageSize]="paginatorOptions.pageSize" (page)="selectPage($event)" aria-label="Select page">
+            </mat-paginator>
+        </div>
+    </div>
+</main>

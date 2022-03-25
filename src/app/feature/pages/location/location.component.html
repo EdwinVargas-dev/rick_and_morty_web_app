@@ -1,0 +1,27 @@
+<main>
+    <div class="d-inline-flex container-flex">
+        <div class="w-100 text-center">
+            <h1 class="mt-0 mb-0">Location detail</h1>
+        </div>
+        <mat-card class="d-flex custom-card">
+            <div>
+                <img src="https://rickandmortyapi.com/api/character/avatar/19.jpeg" alt="" class="resource-img">
+            </div>
+            <div class="pl-10 my-auto">
+                <h2 class="mt-0 mb-0 font-extrabold">{{currentLocation.name}}</h2>
+                <div>
+                    <small>Dimension:</small>
+                    <h4 class="mt-0 mb-0">{{currentLocation.dimension}}</h4>
+                </div>
+                <div>
+                    <small>Type:</small>
+                    <h4 class="mt-0 mb-0">{{currentLocation.type}}</h4>
+                </div>
+                <div *ngIf="currentLocation.residents">
+                    <small>Residents quantity:</small>
+                    <h4 class="mt-0 mb-0">{{currentLocation.residents.length}}</h4>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</main>

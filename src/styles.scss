@@ -1,0 +1,125 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$rick_and_morty-primary: mat.define-palette(mat.$indigo-palette);
+$rick_and_morty-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$rick_and_morty-bg-color: #a9d3e9;
+
+// The warn palette is optional (defaults to red).
+$rick_and_morty-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$rick_and_morty-theme: mat.define-light-theme((
+  color: (
+    primary: $rick_and_morty-primary,
+    accent: $rick_and_morty-accent,
+    warn: $rick_and_morty-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($rick_and_morty-theme);
+
+
+/* FONTS*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap');
+
+/*MAIN*/
+html, body { 
+  height: 100%; 
+  background-color: $rick_and_morty-bg-color;
+}
+body{
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #474747;
+}
+
+/*TEXT*/
+
+h1,h2,h3,h4,h5,h6,span,small,p{
+  font-family: 'Poppins', sans-serif;
+  color: #474747;
+}
+
+/*PAGINATOR*/
+.mat-paginator-container{
+  background-color: $rick_and_morty-bg-color;
+  font-size: 15px;
+  font-weight: bold;
+  justify-content: center !important
+}
+
+/* UTILS */
+
+.d-flex{
+    display: flex;
+}
+.d-inline-flex{
+  display: inline-flex;
+}
+.justify-center{
+  justify-content: center;
+}
+.font-bold{
+    font-weight: bold;
+}
+.font-extrabold{
+  font-weight:900
+}
+.text-center{
+  text-align: center;
+}
+.text-left{
+  text-align: left;
+}
+.text-white{
+  color: white;
+}
+.w-100{
+  width: 100%;
+}
+.mt-10{
+    margin-top: 10px;
+}
+.mt-5{
+    margin-top: 5px;
+}
+.mt-0{
+  margin-top: 0px;
+}
+.mb-10{
+  margin-bottom: 10px;
+}
+.mb-0{
+    margin-bottom: 0px;
+}
+.my-auto{
+    margin: auto 0 !important;
+}
+.pl-10{
+    padding-left: 10px;
+}
+.alive{
+    color: green;
+}
+.dead{
+    color: red;
+}
+.unknown{
+    color: gray;
+}

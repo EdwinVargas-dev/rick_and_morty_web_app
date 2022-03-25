@@ -1,0 +1,27 @@
+<main>
+    <div class="d-inline-flex container-flex">
+        <div class="w-100 text-center">
+            <h1 class="mt-0 mb-0">Episodes List</h1>
+            <h3 class="mt-0" *ngIf="paginatorOptions.next">Page {{(paginatorOptions.next?paginatorOptions.next.split('page=')[1]:0) - 1}}</h3>
+            <h3 class="mt-0" *ngIf="!paginatorOptions.next">Page {{paginatorOptions.pages}}</h3>
+        </div>
+        <mat-card *ngFor="let episode of episodesList" class="d-flex custom-card">
+            <div class="pl-10 my-auto">
+                <h2 class="mt-0 mb-0 font-extrabold">{{episode.name}}</h2>
+                <div>
+                    <small>Episode code:</small>
+                    <h4 class="mt-0 mb-0">{{episode.episode}}</h4>
+                </div>
+                <div>
+                    <small>Release date:</small>
+                    <h4 class="mt-0 mb-0">{{episode.air_date}}</h4>
+                </div>
+            </div>
+        </mat-card>
+
+        <div class="w-100 mt-10">
+            <mat-paginator [length]="paginatorOptions.count" [pageSize]="paginatorOptions.pageSize" (page)="selectPage($event)" aria-label="Select page">
+            </mat-paginator>
+        </div>
+    </div>
+</main>

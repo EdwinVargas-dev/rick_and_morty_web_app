@@ -1,0 +1,31 @@
+.custom-card {
+    padding: 0px;
+    height: 200px;
+    width: 700px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.container-flex{
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.resource-img{
+    height: 100%;
+    border-radius: 10px 0px 0px 10px;
+}
+
+@media (max-width: 600px) {
+    h1,h2,h3,h4,span,p{
+        font-size: 80%;
+    }
+    small{
+        font-size: 60%;
+    }
+    .custom-card{
+        width: 90%;
+        height: 140px;
+        margin: 10px 0px;
+    }
+}

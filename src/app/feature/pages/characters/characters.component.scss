@@ -1,0 +1,41 @@
+.custom-card {
+    padding: 0px;
+    height: 200px;
+    width: 500px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.container-flex{
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.resource-img{
+    height: 100%;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.link{
+    text-decoration: none;
+}
+a {
+    :hover {
+        color: #40b5cb;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 600px) {
+    h1,h2,h3,h4,span,p,.mat-paginator-container{
+        font-size: 80%;
+    }
+    small{
+        font-size: 60%;
+    }
+    .custom-card{
+        width: 90%;
+        height: 130px;
+        margin: 10px 0px;
+    }
+}
